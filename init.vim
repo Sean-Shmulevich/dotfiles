@@ -1,0 +1,1 @@
+/Users/seanshmulevich/.config/nvim/init.vim
