@@ -11,6 +11,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- offset when navigating
 vim.o.scrolloff = 1
+vim.o.modifiable = true
 
 -- Enable termguicolors if supported
 if vim.fn.has("termguicolors") == 1 then
@@ -29,6 +30,10 @@ local function jump_to_char(forward, count)
     local cmd = string.format(cmd_fmt, count or 1, char)
     vim.cmd(cmd)
 end
+
+vim.api.nvim_set_keymap('n', '<CR>', 'A<CR><ESC>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<S-CR>', 'O<ESC>', {noremap = true, silent = true})
+
 
 -- Keymap wrappers to handle the jump logic with dot repeat support
 vim.api.nvim_set_keymap('n', '<leader>,', '', {
